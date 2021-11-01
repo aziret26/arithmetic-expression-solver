@@ -3,6 +3,7 @@ package com.home.practice.calculatorApp.useCase
 import com.home.practice.calculatorApp.dto.ArithmeticOperand
 import com.home.practice.calculatorApp.service.CalculationService
 import org.springframework.stereotype.Service
+import java.math.BigInteger
 
 interface CalculatorUseCase {
     fun calculate(expression: String): String
@@ -39,8 +40,8 @@ internal class CalculatorUseCaseImpl(
         if (splitted.isEmpty() || splitted.size < 2) {
             return null
         }
-        val num1: Int = splitted[0].trim().toInt()
-        val num2: Int = splitted[1].trim().toInt()
+        val num1: BigInteger = splitted[0].trim().toBigInteger()
+        val num2: BigInteger = splitted[1].trim().toBigInteger()
 
         return OperationData(
                 num1 = num1,
@@ -51,7 +52,7 @@ internal class CalculatorUseCaseImpl(
 }
 
 data class OperationData(
-        val num1: Int,
-        val num2: Int,
+        val num1: BigInteger,
+        val num2: BigInteger,
         val operand: ArithmeticOperand,
 )
