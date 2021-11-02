@@ -6,3 +6,4 @@ sample:
  * '11 + 25' -> 36
  * '15 - 5' -> 10
  * '6*8' -> 48
+ now supports bigint
